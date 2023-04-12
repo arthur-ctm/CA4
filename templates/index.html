@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+
+     <link rel="stylesheet" type="text/css" href="../static/style.css" >
+</head>
+<body>
+    <h1>FlaskTODO</h1>
+    <hr>
+    <div class="content">
+    <form method="post">
+        <p>
+            <b><label for="content">Todo content</label></b>
+        </p>
+        <p>
+            <input type="text" name="content"
+                placeholder="Todo Content">
+        </p>
+
+        <p>
+            <b><label for="degree">Degree</label></b>
+        </p>
+        <p>
+            <input id="degree-0" name="degree" required type="radio" value="Important">
+            <label for="degree-0">Important</label>
+        </p>
+        <p>
+            <input id="degree-1" name="degree" required type="radio" value="Unimportant">
+            <label for="degree-1">Unimportant</label>
+        </p>
+
+        <p>
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline" name="deadline" required>
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+    <form method="GET" action="{{ url_for('search') }}">
+    <input type="text" name="query" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+
+    <hr>
+    {% for todo in todos %}
+    <div class="todo">
+        <p>{{ todo['content'] }} </p>
+
+    {% if todo['degree']=='important' %}
+        <i style="font-weight: bold">({{ todo['degree']}})</i>
+        {% else %}
+        <i>({{ todo['degree']}})</i>
+    {% endif %}
+
+        {% if todo['remain_days'] == 1 %}
+        <p style="color:red; font-weight: bold">{{ todo.remain_days }} Day Left</p>
+        {% else %}
+        <p>{{ todo.remain_days }} Days Left</p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('delete', id=todo['_id']) }}" >
+            <input type="submit" value="Delete Todo" onclick="return confirm('Are you sure you want to delete this entry?')">
+        </form>
+        <form method="GET" action="{{ url_for('edit', id=todo['_id']) }}">
+            <input type="hidden" name="id" value="{{ todo['_id'] }}">
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+{% endfor %}
+    </div>
+</body>
+</html>

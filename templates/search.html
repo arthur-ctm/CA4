@@ -1,0 +1,31 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/search.css" >
+</head>
+
+{% block content %}
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+            {% for todo in results %}
+                <li>{{ todo.content }}
+                {% if todo['degree']=='important' %}
+        <i style="font-weight: bold">({{ todo['degree']}})</i>
+        {% else %}
+        <i>({{ todo['degree']}})</i>
+    {% endif %}
+
+        {% if todo['remain_days'] == 1 %}
+        <p style="color:red; font-weight: bold">{{ todo.remain_days }} Day Left</p>
+        {% elif todo['remain_days'] <=3 %}
+        <p style="color:red;">{{ todo.remain_days }} Days Left</p>
+        {% else %}
+        <p>{{ todo.remain_days }} Days Left</p></li>
+        {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+{% endblock %}
+ <a href="../" class="btn btn-primary">Back to Index</a>
