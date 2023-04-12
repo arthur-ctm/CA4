@@ -7,6 +7,9 @@ This is a simple Todo application built with Python and Flask. The application a
 #Usage
 - Access the application at http://localhost:5000.
 - Add a new task by filling out the form at the bottom of the page and clicking "Add Task".
+
+![my image](static/images/index.png "index")
+
 - Mark a task as complete by clicking the "Complete" button next to the task.
 - Sort tasks by importance or deadline using the drop-down menu at the top of the page.
 
