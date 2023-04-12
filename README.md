@@ -12,8 +12,12 @@ This is a simple Todo application built with Python and Flask. The application a
 ![my image](static/img/index.png "index")
 
 - Delete a task when it is completed by pressing the "Delete" button next to the task.
-
+- 
 ![my image](static/img/tasks.png "tasks")
+
+- Edit a task by pressing the "Edit" button.
+
+![my image](static/img/edit.png "edit")
 
 
 
