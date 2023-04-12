@@ -3,8 +3,13 @@
 #Todo Application
 This is a simple Todo application built with Python and Flask. The application allows users to add tasks, mark tasks as complete, and sort tasks by importance and deadline.
 
+# Installation
+- Clone the repository.
+- Create a virtual environment and activate it.
+- Install the required packages.
+- Run the app with flask run.
 
-#Usage
+# Usage
 - Access the application at http://localhost:5000.
 - Add a new task by filling out the form at the bottom of the page and clicking "Add Task".
 - Search tasks by any regex expressions with the "Search" button.
@@ -12,7 +17,7 @@ This is a simple Todo application built with Python and Flask. The application a
 ![my image](static/img/index.png "index")
 
 - Delete a task when it is completed by pressing the "Delete" button next to the task.
-- 
+
 ![my image](static/img/tasks.png "tasks")
 
 - Edit a task by pressing the "Edit" button.
